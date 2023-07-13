@@ -8,9 +8,15 @@ package thread;
  */
 class Counter{
     public static int count = 0;
-     public synchronized static void add(){
-        count++;
-    }
+     synchronized public void add(){
+         synchronized (this) {
+             count++;
+         }
+     }
+
+     public void add2(){
+         count++;
+     }
 }
 public class ThreadDemo13 {
     public static void main(String[] args) {
@@ -23,7 +29,7 @@ public class ThreadDemo13 {
         });
         Thread t2 = new Thread(()->{
             for (int i = 0; i < 50000; i++) {
-                counter.add();
+                counter.add2();
             }
         });
         t1.start();
