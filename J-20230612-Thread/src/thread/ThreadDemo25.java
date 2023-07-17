@@ -87,7 +87,7 @@ class MyTimer{
         }
     }
 }
-public class TestDemo25 {
+/*public class TestDemo25 {
     public static void main(String[] args) {
         MyTimer myTimer = new MyTimer();
         myTimer.schedule(new Runnable() {
@@ -103,4 +103,4 @@ public class TestDemo25 {
             }
         },2000);
     }
-}
+}*/
