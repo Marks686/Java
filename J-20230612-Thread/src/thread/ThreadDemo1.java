@@ -7,7 +7,8 @@ package thread;
  * Time: 23:00
  */
 
-class MyThread extends Thread{
+
+/*class MyThread {
     @Override
     public void run() {
         while(true){
@@ -19,10 +20,10 @@ class MyThread extends Thread{
             }
         }
     }
-}
+}*/
 public class ThreadDemo1 {
     public static void main(String[] args) {
-        Thread t = new MyThread();
+        /*Thread t = new MyThread();
         t.start();
 
         while(true){
@@ -32,6 +33,7 @@ public class ThreadDemo1 {
             }catch (InterruptedException e){
                 e.printStackTrace();
             }
-        }
+        }*/
     }
 }
+
