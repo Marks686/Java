@@ -5,8 +5,6 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 
-
-
 /**
  * Created with IntelliJ IDEA.
  * Description:
@@ -55,7 +53,6 @@ public class UdpEchoServer {
     public String process(String request){
         return request;
     }
-
     public static void main(String[] args) throws IOException {
         //端口号 1024--65536 之间随便指定
         UdpEchoServer server = new UdpEchoServer(9090);

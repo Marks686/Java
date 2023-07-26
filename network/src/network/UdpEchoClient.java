@@ -1,7 +1,8 @@
 package network;
 
-import java.net.DatagramSocket;
-import java.net.SocketException;
+import java.io.IOException;
+import java.net.*;
+import java.util.Scanner;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,16 +26,35 @@ public class UdpEchoClient {
         this.serverIp = serverIp;
         this.serverPort = serverPort;
     }
-
-    public void start(){
+    public void start() throws IOException {
         System.out.println("客户端启动!");
+        Scanner scanner = new Scanner(System.in);
+
         while (true){
             //1. 从控制台读取要发送的数据
+            System.out.print("> ");
+            String request = scanner.next();
+            if(request.equals("exit")){
+                System.out.println("goodbye");
+                break;
+            }
             //2. 构造UDP请求并发送
+            //构造Packet 的时候需要把serverIp和port都传入过来,IP地址需要填写32位整数形式
+            //上述的IP地址是一个字符串 所以需要用InetAddress.getByName(serverIp)转换
+            DatagramPacket requestPacket = new DatagramPacket(request.getBytes(),request.getBytes().length,
+                    InetAddress.getByName(serverIp),serverPort);
+            socket.send(requestPacket);
             //3. 读取服务器UDP响应 并解析
+            DatagramPacket responsePacket = new DatagramPacket(new byte[4096],4096);
+            socket.receive(responsePacket);
+            String response = new String(responsePacket.getData(),0,responsePacket.getLength());
             //4. 把解析好的结果显示出来
-
+            System.out.println(response);
         }
     }
 
+    public static void main(String[] args) throws IOException {
+        UdpEchoClient client = new UdpEchoClient("127.0.0.1",9090);
+        client.start();
+    }
 }
