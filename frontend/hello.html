@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- css让页面里所有文字居中 -->
 </head>
 
 <body>
@@ -37,7 +38,298 @@
     <br> -->
 
     <!-- <img width="1000px" height="1000px" src="image/xiaogou.jpg" alt="这是一只狗" title="这是一只狗"> -->
-    <a href="http://wwww.baidu.com" target="_blank">百度</a>
+    <!-- <a href="http://wwww.baidu.com" target="_blank">百度</a> -->
+
+    <!-- <table width="500px" height="300px" border="1px" cellspacing="0">
+        <tr>
+            <th>name</th>
+            <th>nu mber</th>
+        </tr>
+
+        <tr>
+            <td>MrTang</td>
+            <td>10010</td>
+        </tr>
+
+        <tr>
+            <td>MrBo</td>
+            <td>32323</td>
+        </tr>
+
+        <tr>
+            <td>MrPeng</td>
+            <td>900909</td>
+        </tr>
+    </table> -->
+
+     <!-- 有序列表 -->
+     <!-- <h3>我的动漫小人</h3>
+        <ol>
+            <li>咬人猫</li>
+            <li>兔总裁</li>
+            <li>张奶糖</li>
+            <li>啊叶君</li>
+        </ol> -->
+
+        <!-- 无序列表 -->
+        <!-- <ul>
+            <li>咬人猫</li>
+            <li>兔总裁</li>
+            <li>张奶糖</li>
+            <li>啊叶君</li>
+        </ul> -->
+
+        <!-- <input type="text"> -->
+        <!-- <input type="password"> 密码框 -->
+        <!-- 请选择性别:
+        <input type="radio" name="gender"> 男
+        <input type="radio" name="gender" checked="checked"> 女 -->
+        <!-- 大学生每天都干啥
+        <input type="checkbox"> 吃饭
+        <input type="checkbox" checked="checked"> 睡觉
+        <input type="checkbox"> 学习
+        <input type="checkbox"> 打游戏 -->
+        <!-- <input type="button" value="按钮" onclick="alert('hello')"> -->
+        <!-- <input type="file"> -->
+
+        <!-- <select>
+            <option> 北京 </option>
+            <option> 上海 </option>
+            <option> 深圳 </option>
+            <option> 广州 </option>
+            <option> 杭州 </option>
+        </select> -->
+
+        <!-- <textarea cols="30" rows="10"></textarea> -->
+
+        <!-- <p>
+            这是一个段落
+        </p>
+
+        <p>
+            这是另一个段落
+        </p> -->
+        <!-- style标签可以放到代码的任意位置 -->
+        <!-- <style>
+            p{
+                color: green;
+                font: 30px sans-serif;
+            }
+        </style> -->
+        <!-- <style>
+            p{
+                color: yellow;
+                font-size: 40px;
+            }
+        </style> -->
+        <style>
+            /* 此处定义了一个css类 名字叫做one css类名定义的时候需要使用 . 开头*/
+            /* .one{
+                color: red;
+            }
+            .two{
+                color: green;
+            }
+            .three{
+                color: blue;
+            }
+            .four{
+                font-size: 100px;
+            } */
+
+            /* #oneDiv{
+                color: red;
+            } */
+            /* .one li{
+                color: red;
+            } */
+            /* .one>li{
+                color: blue;
+            } */
+            /* .one>a{
+                color: red;
+            } */
+
+            /* .two{
+                font-size: 40px;
+            }
+            .three{
+                font-size: 40px;
+            } */
+            /* .two,.three{
+                font-size: 20px;
+                color: red;
+            } */   
+            /* .one:hover{
+                color: red;
+                font-size: 40px;
+            }
+            .one:active{
+                color: green;
+                font-size: 50px;
+            } */
+            /* .one{
+                font-size: 40px;
+                font-family: '微软雅黑';
+                font-weight: 900;
+                font-style: normal;
+                color: rgb(128,255,50);
+                color: #00ff00;
+                text-align: left;
+                text-decoration: none;
+                text-indent: 2em;
+                line-height: 60px;
+                height: 2000px;
+                background-color: rgb(0, 128, 0);
+                background-image: url(xiaogou.jpg);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: contain;
+            } */
+            /* .two{
+                font-size: 40px;
+                font-family: '宋体';
+                font-styl e: normal;
+            }
+            .three{
+                font-size: 40px;
+                font-family: '黑体';
+
+            }
+            .four{
+                font-size: 40px;
+                font-family: '华文行楷';
+            } */
+            /* a{
+                text-decoration: none;
+            } */
+
+            /* .two{
+                width: 200px;
+                height: 100px;
+                background-color: orange;
+                color: #fff;
+                
+                text-align: center;
+                line-height: 100px;
+
+                border-radius: 8px;
+
+                border: 10px black solid;
+
+                box-sizing: border-box;
+                 padding: 10px 10px; 
+            
+
+                margin-bottom: 5px;
+            }
+            .three{
+                width: 200px;
+                height: 100px;
+                background-color: grey;
+
+
+            } */
+            /* .four{
+                width: 50px;
+                height: 50px;
+                background-color: red;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: auto;
+                margin-bottom: auto;
+            } */
+
+            div{
+                width: 100%;
+                height: 150px;
+                background-color: rgb(255, 0, 0);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            div>span{
+                background-color: green;
+                width: 100px;
+                height: 100px;
+            }
+        </style> 
+
+
+
+        <div>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+
+        </div>
+
+        <!-- <div class="one">
+            这是一个div <br>
+            这是一个div div Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ipsum nemo numquam, dicta eum porro fuga eaque tempora quod, excepturi fugiat? Suscipit fugiat tempora sed iure aliquid neque iste quaerat!
+        </div> -->
+        <!-- <div class="two">
+            <div class="four">
+
+            </div>
+        </div>
+
+        <div class="three">
+            这是另一个div
+        </div> -->
+
+        <!-- <a href="#">这是一个 a 标签</a> -->
+
+        <!-- <div class="two">
+            这是一个div
+        </div>
+        <div class="three">
+            这是一个div
+        </div>
+        <div class="four">
+            这是一个div
+        </div> -->
+        
+        
+        <!-- <div class="one">
+            <a href="#" class="two">链接1</a>
+            <p>
+                <a href="#" class="three">链接2</a>
+            </p>
+        </div> -->
+
+        <!-- <ol>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ol>
+
+        <ul class="one">
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul> -->
+        <!-- <div id="oneDiv">
+            这是一个div
+        </div>
+
+        <div id="twoDiv">
+            这是另一个div
+        </div> -->
+
+        <!-- <div class="one four">
+            这是第一个div
+        </div>
+        <div class="two">
+            这是第二个div
+        </div>
+        <div class="three">
+            这是第三个div
+        </div> --> 
+
 </body>
 
 </html>
