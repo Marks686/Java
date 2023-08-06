@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom api</title>
+</head>
+<body>
+    <div class="box">abc</div>
+    <div class="id">def</div>
+    <h3>
+        <span>
+            <input type="text">
+        </span>
+    </h3>
+
+    <script>
+        let elem1 = document.querySelector('.box');
+        console.dir(elem1);
+
+        let elem2 = document.querySelector('.id');
+        console.log(elem2);
+
+        let elem3 = document.querySelector('h3>span>input');
+        console.log(elem3);
+    </script>
+</body>
+</html>
