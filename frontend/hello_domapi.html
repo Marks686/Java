@@ -6,23 +6,116 @@
     <title>dom api</title>
 </head>
 <body>
-    <div class="box">abc</div>
+    <!-- <div class="box">abc</div>
     <div class="id">def</div>
     <h3>
         <span>
             <input type="text">
         </span>
-    </h3>
+    </h3> -->
 
+    <!-- <img src="xiaogou.jpg" alt="这是一直可爱的小狗" title="我的小狗"> -->
+    <!-- <input type="text">
+    <button>隐藏密码</button> -->
+
+
+    <!-- <div style="font-size: 20px;">这是一个div,点击之后字体放大</div> -->
+    <!-- <div id="one" class="light" style="font-size: 20px; height: 500px;">这是一个div,点击之后字体放大</div> -->
+
+
+
+    <!-- <style>
+        .light{
+            /* 日间模式 */
+            color: black;
+            background-color: white;
+        }
+        .dark{
+            /* 夜间模式 */
+            color: white;
+            background-color: black;
+        }
+    </style> -->
+
+    <!-- <div class="one">
+        这是一个div
+    </div> -->
+
+    <ul>
+        <li>11</li>
+        <li>22</li>
+    </ul>
     <script>
-        let elem1 = document.querySelector('.box');
-        console.dir(elem1);
+        let ul = document.querySelector('ul');
+        for(let n = 3; n < 10; n++){
+            let li = document.createElement('li');
+            li.innerHTML = n + '' + n;
+            ul.appendChild(li);
+        }
+        let toDelete = document.querySelectorAll('li')[2];
+        console.log(toDelete);
+        ul.removeChild(toDelete);
 
-        let elem2 = document.querySelector('.id');
-        console.log(elem2);
+        // let input = document.createElement("input");
+        // //让输入框默认显示hello
+        // input.value = 'hello';
+        // let div = document.querySelector('.one');
+        // div.appendChild(input);
+        // let div = document.querySelector('div');
+        // div.onclick = function(){
 
-        let elem3 = document.querySelector('h3>span>input');
-        console.log(elem3);
+        //     if(div.className == 'dark'){
+        //         div.className = 'light';
+        //     }else{
+        //         div.className = 'dark';
+        //     }
+        //     //先获取到当前字体大小
+        //     // let fontSize = parseInt(div.style.fontSize);
+        //     // fontSize += 10;
+        //     // div.style.fontSize = fontSize + 'px';
+        // }
+        // let input = document.querySelector('input');
+        // let button = document.querySelector('button');
+        // button.onclick = function(){
+        //     if(input.type == 'text'){
+        //         input.type = 'password';
+        //         button.innerHTML = '显示密码';
+        //     }else{ 
+        //         input.type = 'text';
+        //         button.innerHTML = '隐藏密码';
+        //     }
+        //     // console.log(input.value);
+        //     // let value = parseInt(input.value);
+        //     // value += 1;
+        //     // input.value = value;
+        // }
+        // let img =  document.querySelector('img');  
+        // console.dir(img);
+        // img.onclick = function(){
+        //     console.log(img.src);
+        //     console.log(img.title);
+        //     console.log(img.alt);
+        //     console.log(img.width);
+        //     console.log(img.height);
+        //     img.src = 'xiaomao.jpg';
+        // }
+        // let div = document.querySelector('.box');
+        // div.onmousemove = function(){
+        //     alert('hello');
+        // }
+        // div.onclick = function(){
+        //     // alert('hello');
+        //     console.log(div.innerHTML);
+        //     div.innerHTML += 'a';
+        // }
+        // let elem1 = document.querySelector('.box');
+        // console.dir(elem1);
+
+        // let elem2 = document.querySelector('.id');
+        // console.log(elem2);
+
+        // let elem3 = document.querySelector('h3>span>input');
+        // console.log(elem3);
     </script>
 </body>
 </html>

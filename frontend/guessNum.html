@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字</title>
+</head>
+<body>
+    <div>请输入要猜的数字</div>
+    <input type="text">
+    <button>提交</button>
+
+    <!-- 使用这个div来显示结果 -->
+    <div class="result">
+
+    </div>
+
+    <script>
+        //1. 生成1-100随机整数
+        let toGuess = parseInt(100 * Math.random()) + 1;
+        console.log(toGuess);
+        //2. 进行猜数字
+        let button = document.querySelector('button');
+        let resultDiv = document.querySelector('.result');
+        let input = document.querySelector('input');
+        button.onclick = function(){
+            //3. 取出输入框中的内容
+            if(input.value == ''){
+                return;
+            }
+            let inputNum = parseInt(input.value);
+            //4. 比较大小关系
+            if(inputNum < toGuess){
+                resultDiv.innerHTML = '低了';
+            } else if(inputNum > toGuess){
+                resultDiv.innerHTML = '高了';
+            }else{
+                resultDiv.innerHTML = '猜对了';
+            }
+        }
+    </script>
+</body>
+</html>

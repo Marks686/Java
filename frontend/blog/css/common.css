@@ -1,0 +1,58 @@
+/* 先去除浏览器的公共样式 并设置border-box 避免元素盒子被内边距和边框撑大 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    /* 
+        html 是页面的最顶层元素 高度100%是相对于父元素来说的
+        对于html 标签来说 父元素就是浏览器窗口
+        body的父亲是html 设为100% 意思是body和html一样高
+        此时body 和 html的高度都是和浏览器一样高
+    */
+    height: 100%;
+}
+
+body{
+    background-image: url(../image/view3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+/* 实现导航栏的样式 */
+.nav{
+    /* 设置宽度和父元素一样宽*/
+    /* 块级元素来说 宽度默认就是100% */
+    width: 100%;
+    /* 设置高度是 50px */
+    height: 50px;
+    background-color: rgba(50,50,50,0.4);
+    color: white;
+    /* 导航栏里面的元素都是水平排列 弹性布局来设置 */
+    display: flex;
+    /* 垂直方向居中 */
+    align-items: center;
+}
+
+.nav img{
+    width: 40px ;
+    height: 40px;
+    margin-left: 30px;
+    margin-right: 10px;
+    /* 让元素变圆 把内切圆半径设置为宽度的一半就正好是一个圆形 */
+    border-radius: 50%;
+}
+
+.nav .spacer{
+    width: 82%;
+}
+
+.nav a{
+    color: white;
+    /* 去掉下划线 */
+    text-decoration: none;
+    /* 为了让a标签不要很紧凑 就设置内边距 */
+    padding: 20px;
+}
