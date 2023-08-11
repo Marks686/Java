@@ -56,3 +56,82 @@ body{
     /* 为了让a标签不要很紧凑 就设置内边距 */
     padding: 20px;
 }
+
+/* 编写页面主体样式 */
+.container{
+    /* 设置主体部分宽度 1000px */
+    width: 1000px;
+    /* 高度能够填充整个页面 */
+    height: calc(100% - 50px);
+    /* 水平居中 */
+    margin: 0 auto;
+
+    /* 为了方便看效果临时加上背景色 */
+    /* background-color: blue; */
+
+    /* 弹性布局 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-left{
+    /* 相对于父元素 父元素是container */
+    height: 100%;
+    width: 200px;
+    /* background-color: red; */
+}
+
+.container-right{
+    /* 相对于父元素 父元素是container */
+    height: 100%;
+    width: 795px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 10px;
+
+    /* 让这个元素带上滚动条 */
+    /* 这个属性表示,内容没有溢出,无滚动条 内容溢出自动加上滚动条 */
+    overflow: auto;
+}
+
+/* 左侧用户信息 */
+.card{
+    background-color: rgb(255,255,255,0.8);
+    border-radius: 10px;
+    /* 让内容和边框有点间距 */
+    padding: 30px;
+}
+
+/* 用户头像 */
+.card img{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+}
+
+/* 用户名字 */
+.card h3{
+    /* 让文字水平居中 */
+    text-align: center;
+    /* 让文字和上下都有边距 */
+    padding: 10px;
+}
+/* 用户GitHub链接 */
+.card a{
+    /* a标签是行内元素 */
+    text-align: center;
+    /* 为了配合上述样式,设置成块级元素 */
+    display: block;
+    color: #777;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.card .counter{
+    /* 为了让里面的元素水平排列,使用弹性布局 */
+    display: flex;
+    /* 水平方向排列开 */
+    justify-content: space-around;
+    padding: 5px;
+}
+
