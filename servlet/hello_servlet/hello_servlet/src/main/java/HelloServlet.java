@@ -14,6 +14,21 @@ import java.io.IOException;
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
     @Override
+    public void init() throws ServletException {
+        //重写init 插入自己"初始化"相关的逻辑
+        System.out.println("init");
+    }
+    @Override
+    public void destroy() {
+        System.out.println("destroy");
+    }
+
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.service(req, resp);
+    }
+
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //这个只是在服务器的控制台打印
         System.out.println("hello world");
