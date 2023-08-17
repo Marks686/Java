@@ -3,6 +3,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,14 +23,33 @@ public class DBUtil {
         ((MysqlDataSource)dataSource).setUser("root");
         ((MysqlDataSource)dataSource).setPassword("123456");
     }
-
     //通过这个方法建立连接
-    public static Connection getConnection(){
-
+    public static Connection getConnection() throws SQLException {
+        return dataSource.getConnection();
     }
-
     //通过这个方法断开连接,释放资源
     public static void close(Connection connection, PreparedStatement statement, ResultSet resultSet){
-
+        //此处 try catch 分开写更好 避免前面的异常导致后面的代码不能被执行
+        if (resultSet != null){
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (statement != null){
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (connection != null){
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

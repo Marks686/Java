@@ -51,7 +51,7 @@
         }
         /* 点击的时候有个反馈 */
         .row button:active{
-            background-color: gray;
+            background-color: black;
         }
     </style>
 </head>
@@ -151,8 +151,8 @@
                 for (let message of body){
                     // 针对每个元素构造一个 div
                     let rowDiv = document.createElement('div');
-                    rowDiv.className = 'row';
-                    rowDiv.innerHTML = message.from + ' 对 ' + message.to + ' 说: ' + message.msg;
+                    rowDiv.className = 'row message';
+                    rowDiv.innerHTML = message.from + ' 对 ' + message.to + ' 说: ' + message.message;
                     containerDir.appendChild(rowDiv);
                 }
             }
