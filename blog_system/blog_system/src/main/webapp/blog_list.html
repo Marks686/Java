@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客列表页</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/blog_list.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <img src="image/view1.jpg" alt="">
+        <span class="title">我的博客系统</span>
+        <!-- 这个标签仅仅用于占位 -->
+        <div class="spacer"></div>
+        <a href="#">主页</a>
+        <a href="#">写博客</a>
+        <a href="#">注销</a>
+    </div>
+
+    <!-- 页面主体 -->
+    <div class="container">
+        <!-- 左侧信息 -->
+        <div class="container-left">
+            <!-- 使用这个.card表示用户信息 -->
+            <div class="card">
+                <!-- 用户头像 -->
+                <img src="image/view4.jpg" alt="">
+                <!-- 用户名 -->
+                <h3>Mark686</h3>
+                <a href="#">GitHub地址</a>
+                <div class="counter">
+                    <span>文章</span>
+                    <span>分类</span>
+                </div>
+
+                <div class="counter">
+                    <span>2</span>
+                    <span>1</span>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧信息 -->
+        <div class="container-right">
+            <!-- 表示一篇博客 (样例最后删)-->
+           
+        </div>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        // 在页面加载时 向服务器发起请求 获取博客列表数据
+        function getBlogs(){
+            $.ajax({
+                type: 'get',
+                url: 'blog',
+                success: function(body){
+                    // 响应的正文是一个 json 字符串 此处已经被 jquery自动解析成 js 对象数组了
+                    // 直接 for 循环遍历即可
+                    let containerRight = document.querySelector('.container-right');
+
+                    for (let blog of body){
+                        // 构造页面内容 参考之前写好的html代码
+                        // 构造整个博客div
+                        let blogDiv = document.createElement('div');
+                        blogDiv.className = 'blog';
+                        //构造标题
+                        let titleDiv = document.createElement('div');
+                        titleDiv.className = 'title';
+                        titleDiv.innerHTML = blog.title;
+                        blogDiv.appendChild(titleDiv);
+                        // 构造发布时间
+                        let dateDiv = document.createElement('div');
+                        dateDiv.className = 'date';
+                        dateDiv.innerHTML = blog.postTime;
+                        blogDiv.appendChild(dateDiv);
+                        // 构造 博客 摘要
+                        let descDiv = document.createElement('div');
+                        descDiv.className = 'desc';
+                        descDiv.innerHTML = blog.content;
+                        blogDiv.appendChild(descDiv);
+                        // 构造查看全文按钮
+                        let a = document.createElement('a');
+                        a.innerHTML = '查看全文 &gt;&gt;';
+                        // 期望点击之后能跳转到博客详情页
+                        a.href = 'blog_detail.html?blogId=' + blog.blogId;
+                        blogDiv.appendChild(a);
+                        // 把blogDiv 加到父元素中
+                        containerRight.appendChild(blogDiv);
+                    }
+                }
+            });
+        }
+        // 调用
+        getBlogs();
+    </script>
+</body>
+</html>
