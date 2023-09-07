@@ -17,5 +17,11 @@ public class Test {
         System.out.println();
         BinarySearchTree.TreeNode ret = binarySearchTree.find(12);
         System.out.println(ret.val+" ");
+        System.out.println("========================");
+
+
+        binarySearchTree.remove(12);
+        binarySearchTree.inorder(binarySearchTree.root);
+        System.out.println();
     }
 }

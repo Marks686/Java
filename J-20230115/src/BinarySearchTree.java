@@ -93,9 +93,26 @@ public class BinarySearchTree {
                 parent.right = cur.right;
             }
         } else if (cur.right == null){
-
+            if (cur == root){
+                root = cur.left;
+            }else if (parent.left == cur) {
+                parent.left = cur.left;
+            }else {
+                parent.right = cur.left;
+            }
         }else {
-
+            TreeNode target = cur.right;
+            TreeNode targetParent = cur;
+            while (target.left != null){
+                targetParent = target;
+                target = target.left;
+            }
+            cur.val = target.val;
+            if (target == targetParent.left){
+                targetParent.left = target.right;
+            } else {
+                targetParent.right = target.right;
+            }
         }
     }
 
