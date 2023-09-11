@@ -22,7 +22,12 @@ public class Main {
         //test03()会报错 因为点击的是百度中新闻超链接 这个超链接没有放到form标签中
         //test03();
         //test04();
-        test05();
+        //test05();
+        test07();
+    }
+
+    private static void test07() {
+
     }
 
     private static void test05() {
