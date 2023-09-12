@@ -4,12 +4,12 @@
  * Date: 2023-09-08
  * Time: 11:39
  */
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 
+import javax.swing.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -23,11 +23,75 @@ public class Main {
         //test03();
         //test04();
         //test05();
-        test07();
+        // test07();
+        //test08();
+        //test09();
+        page01();
     }
 
-    private static void test07() {
+    private static void page01() {
 
+    }
+
+    private static void test09() throws InterruptedException {
+        WebDriver webDriver = new ChromeDriver();
+        //打开百度首页
+        webDriver.get("https://www.baidu.com/");
+        webDriver.findElement(By.cssSelector("#kw")).sendKeys("520");
+        webDriver.findElement(By.cssSelector("#su")).click();
+        sleep(3000);
+        // 找到图片按钮
+        WebElement webElement = webDriver.findElement(By.cssSelector("#s_tab > div > a.s-tab-item.s-tab-item_1CwH-.s-tab-pic_p4Uej.s-tab-pic"));
+        // 鼠标右击
+        Actions actions = new Actions(webDriver);
+        sleep(3000);
+        actions.moveToElement(webElement).contextClick().perform();
+    }
+
+    private static void test08() throws InterruptedException {
+        WebDriver webDriver = new ChromeDriver();
+        //打开百度首页
+        webDriver.get("https://www.baidu.com/");
+        //搜索521
+        webDriver.findElement(By.cssSelector("#kw")).sendKeys("521");
+        // control + A
+        webDriver.findElement(By.cssSelector("#kw")).sendKeys(Keys.CONTROL,"A");
+        sleep(3000);
+        // control + X
+        webDriver.findElement(By.cssSelector("#kw")).sendKeys(Keys.CONTROL,"X");
+        sleep(3000);
+
+        // control + V
+        webDriver.findElement(By.cssSelector("#kw")).sendKeys(Keys.CONTROL,"V");
+        sleep(3000);
+
+
+    }
+
+    private static void test07() throws InterruptedException {
+        WebDriver webDriver = new ChromeDriver();
+        //打开百度首页
+        webDriver.get("https://www.baidu.com/");
+        sleep(3000);
+        //搜索521
+        webDriver.findElement(By.cssSelector("#kw")).sendKeys("521");
+        webDriver.findElement(By.cssSelector("#su")).click();
+        //强制等待3秒
+        sleep(3000);
+        //浏览器后退
+        webDriver.navigate().back();
+        //强制等待3s
+        sleep(3000);
+        webDriver.navigate().refresh();
+        //浏览器前进
+        webDriver.navigate().forward();
+        sleep(3000);
+        ((JavascriptExecutor)webDriver).executeScript("document.documentElement.scrollTop=10000");
+        webDriver.manage().window().maximize();
+        sleep(3000);
+        webDriver.manage().window().fullscreen();
+        sleep(3000);
+        webDriver.manage().window().setSize(new Dimension(600,1000));
     }
 
     private static void test05() {
