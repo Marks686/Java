@@ -4,19 +4,23 @@
  * Date: 2023-09-08
  * Time: 11:39
  */
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 
 import javax.swing.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import static java.lang.Thread.sleep;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         //test01();
         //test02();
         //test03()会报错 因为点击的是百度中新闻超链接 这个超链接没有放到form标签中
@@ -26,7 +30,46 @@ public class Main {
         // test07();
         //test08();
         //test09();
-        page01();
+        //page01();
+        //test10();
+        //test11();
+        //test12();
+    }
+
+    private static void test12() throws InterruptedException, IOException {
+        WebDriver webDriver = new ChromeDriver();
+        webDriver.get("https://www.baidu.com/");
+        webDriver.findElement(By.cssSelector("#kw")).sendKeys("软件测试");
+        webDriver.findElement(By.cssSelector("#su")).click();
+        sleep(3000);
+        File file = ((TakesScreenshot)webDriver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(file,new File("D://20230521jietu.png"));
+    }
+
+    private static void test11() throws InterruptedException {
+        WebDriver webDriver = new ChromeDriver();
+        webDriver.get("https://www.baidu.com/");
+        webDriver.findElement(By.cssSelector("#s-top-left > a:nth-child(1)")).click();
+        sleep(3000);
+        // getWindowHandles此操作获取所有的窗口句柄 getWindowHandle获取get打开的页面窗口句柄
+        Set<String> handles = webDriver.getWindowHandles();
+        String target_handle = "";
+        for (String handle:handles){
+            target_handle = handle;
+        }
+        webDriver.switchTo().window(target_handle);
+        sleep(3000);
+        webDriver.findElement(By.cssSelector("#ww")).sendKeys("新闻联播");
+        webDriver.findElement(By.cssSelector("#s_btn_wr")).click();
+    }
+
+    private static void test10() throws InterruptedException {
+        WebDriver webDriver = new ChromeDriver();
+        webDriver.get("https://www.baidu.com/");
+        webDriver.findElement(By.cssSelector("#s-top-left > a:nth-child(1)")).click();
+        sleep(4000);
+        //webDriver.quit();
+        webDriver.close();
     }
 
     private static void page01() {
@@ -48,7 +91,7 @@ public class Main {
         actions.moveToElement(webElement).contextClick().perform();
     }
 
-    private static void test08() throws InterruptedException {
+    private static void  test08() throws InterruptedException {
         WebDriver webDriver = new ChromeDriver();
         //打开百度首页
         webDriver.get("https://www.baidu.com/");
