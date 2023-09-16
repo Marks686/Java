@@ -12,7 +12,8 @@ public class App {
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("spring-config.xml");
         //2.从Spring中取出Bean对象
-        User user = (User) context.getBean("user");
+        //User user = (User) context.getBean("user");//根据bean 名称来得到Bean对象
+        User user = context.getBean(User.class);// 根据bean类型获取 Bean
         //3.使用Bean(可选)
         System.out.println(user.sayHi());
     }
