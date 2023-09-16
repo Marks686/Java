@@ -11,9 +11,11 @@ public class App {
         //1.得到Spring的上下文 创建的时候需要配置Spring 配置信息
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("spring-config.xml");
+        System.out.println("ApplicationContext 之后的代码");
         //2.从Spring中取出Bean对象
         //User user = (User) context.getBean("user");//根据bean 名称来得到Bean对象
-        User user = context.getBean(User.class);// 根据bean类型获取 Bean
+        //User user = context.getBean(User.class);// 根据bean类型获取 Bean
+        User user = context.getBean("user",User.class);// 根据 Bean 名称 + 类型 获取Bean对象
         //3.使用Bean(可选)
         System.out.println(user.sayHi());
     }

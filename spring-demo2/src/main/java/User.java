@@ -5,6 +5,9 @@
  * Time: 22:36
  */
 public class User {
+    public User(){
+        System.out.println("执行了User构造方法");
+    }
     public String sayHi(){
         return "hello, world.";
     }
