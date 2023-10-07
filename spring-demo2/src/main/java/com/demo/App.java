@@ -41,7 +41,7 @@ public class App {
 //        System.out.println("s1: " + Introspector.decapitalize(s1));
 //
 //        String s2 = "userInfo";
-//        System.out.println("s2: " + Introspector.decapitalize(s2));
+//        System.out.println("s2: " + Intr ospector.decapitalize(s2));
 //
 //        String s3 = "UInfo";
 //        System.out.println("s3: " + Introspector.decapitalize(s3));
