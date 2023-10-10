@@ -1,8 +1,11 @@
 package com.demo;
 
 import com.demo.component.BController;
+import com.demo.component.UserBeans;
 import com.demo.component.UserComponent;
 import com.demo.controller.StudentController;
+import com.demo.controller.UserAdviceController;
+import com.demo.controller.UserController;
 import com.demo.model.Student;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
@@ -53,7 +56,13 @@ public class App {
 
 //        Student student = context.getBean("student", Student.class);
 //        System.out.println(student);
-        StudentController sc = context.getBean("studentController", StudentController.class);
-        sc.sayHi();
+//        StudentController sc = context.getBean("studentController", StudentController.class);
+//        sc.sayHi();
+
+        UserController uc = context.getBean("userController",UserController.class);
+        uc.getUser();
+
+        UserAdviceController ua = context.getBean("userAdviceController",UserAdviceController.class);
+        ua.getUser();
     }
 }
