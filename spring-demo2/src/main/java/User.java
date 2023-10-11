@@ -1,3 +1,5 @@
+import org.springframework.stereotype.Controller;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:
