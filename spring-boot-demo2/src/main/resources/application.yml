@@ -1,0 +1,20 @@
+server:
+  port: 6666
+
+# 自定义配置项
+mytest2: 李四
+
+mytest: 张三
+
+# 配置数据库连接
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/testdb?characterEncoding=utf8
+    username: root
+    password: 123456
+
+
+# 字符串
+myString: 你好,\n世界
+myString2: '你好,\n世界'
+myString3: "你好,\n世界"
