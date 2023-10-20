@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
@@ -38,14 +39,16 @@ public class TestController {
     @Value("${myString3}")
     private String myString3;
 
+    @Autowired
+    private Student student;
 
 
     @PostConstruct
     public void postConstruct(){
-        System.out.println("myString:" + myString);
-        System.out.println("myString2:" + myString2);
-        System.out.println("myString3:" + myString3);
-
+//        System.out.println("myString:" + myString);
+//        System.out.println("myString2:" + myString2);
+//        System.out.println("myString3:" + myString3);
+        System.out.println(student);
     }
 
     @RequestMapping("/hi") // url路由注册
