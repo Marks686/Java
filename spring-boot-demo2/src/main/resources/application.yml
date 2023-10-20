@@ -11,7 +11,7 @@ mytest: 张三
 # 配置数据库连接
 spring:
   profiles:
-    active: prodjj
+    active: prod
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/testdb?characterEncoding=utf8
     username: root
