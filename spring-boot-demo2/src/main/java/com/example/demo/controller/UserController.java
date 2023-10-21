@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Date: 2023-10-20
  * Time: 17:32
  */
-@RequestMapping("/user/hi")
+@RequestMapping("/user")
 @Controller
 @ResponseBody // 设置当前类中所有的方法返回的是数据而非页面
 public class UserController {
@@ -31,6 +31,7 @@ public class UserController {
         logger.info("我是 info");
         logger.warn("我是 warn");
         logger.error("我是 error");
+        System.out.println("我是 System.");
         return "Hi,Spring Boot.";
     }
 
