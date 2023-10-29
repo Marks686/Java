@@ -5,6 +5,10 @@ s.org/dtd/mybatis-3-mapper.dtd">
 
 
     <select id="getUserById" resultType="com.example.demo.entity.Userinfo">
-        select * from userinfo where id=${user_id}
+        select * from userinfo where id=${userId}
+    </select>
+
+    <select id="getAll" resultType="com.example.demo.entity.Userinfo">
+        select * from userinfo
     </select>
 </mapper>
