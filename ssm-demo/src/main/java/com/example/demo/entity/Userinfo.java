@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Data
 public class Userinfo {
     private int id;
-    private String username;
+    private String name;
     private String password;
     private String photo; //  头像
     private LocalDateTime createtime;

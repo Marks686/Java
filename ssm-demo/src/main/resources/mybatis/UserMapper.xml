@@ -4,6 +4,16 @@ s.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.UserMapper">
 
 
+    <resultMap id="baseMap" type="com.example.demo.entity.Userinfo">
+        <id column="id" property="id"></id>
+        <result column="username" property="name"></result>
+        <result column="password" property="password"></result>
+        <result column="photo" property="photo"></result>
+        <result column="createtime" property="createtime"></result>
+        <result column="updatetime" property="updatetime"></result>
+        <result column="state" property="state"></result>
+    </resultMap>
+
     <select id="getUserById" resultType="com.example.demo.entity.Userinfo">
         select * from userinfo where id=#{userId}
     </select>
@@ -12,8 +22,12 @@ s.org/dtd/mybatis-3-mapper.dtd">
         select * from userinfo where username=#{username}
     </select>
 
+<!--    <select id="getAll" resultMap="baseMap">-->
+<!--        select * from userinfo-->
+<!--    </select>-->
+
     <select id="getAll" resultType="com.example.demo.entity.Userinfo">
-        select * from userinfo
+        select id,username as name,password,photo,createtime,updatetime,state from userinfo
     </select>
 
     <insert id="add">

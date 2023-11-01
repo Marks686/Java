@@ -37,7 +37,7 @@ public interface UserMapper {
     /* 在查询的时候根据 id 大小排序进行显示 */
     List<Userinfo> getListByOrder(@Param("order") String order);
 
-    /**/
+    /* 登录 */
     Userinfo login(@Param("username") String username,
                    @Param("password") String password);
 
