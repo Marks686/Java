@@ -60,4 +60,56 @@ s.org/dtd/mybatis-3-mapper.dtd">
         select * from userinfo where username like concat('%',#{username},'%')
     </select>
 
+    <insert id="add2">
+        insert into userinfo(username,password
+        <if test="photo != null">
+            ,photo
+        </if>
+        )
+        values(#{username},#{password}
+        <if test="photo != null">
+            ,#{photo}
+        </if>
+        )
+    </insert>
+
+    <insert id="add3">
+        insert into userinfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                username,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="photo != null">
+                photo,
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                #{username},
+            </if>
+            <if test="password != null">
+                #{password},
+            </if>
+            <if test="photo != null">
+                #{photo},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="getListByParam" resultType="com.example.demo.entity.Userinfo">
+        select * from userinfo
+        <where>
+            <if test="username != null">
+                username=#{username}
+            </if>
+            <if test="password != null">
+                and password=#{password}
+            </if>
+        </where>
+    </select>
+
 </mapper>

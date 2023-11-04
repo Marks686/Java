@@ -118,4 +118,30 @@ class UserMapperTest {
         List<Userinfo> list = userMapper.getListByName(username);
         System.out.println("list: " + list);
     }
+
+    @Test
+    void add2() {
+        Userinfo userinfo = new Userinfo();
+        userinfo.setUsername("王五");
+        userinfo.setPhoto(null);
+        userinfo.setPassword("123");
+        int result = userMapper.add2(userinfo);
+        System.out.println("添加: " + result);
+    }
+
+    @Test
+    void add3() {
+        Userinfo  userinfo = new Userinfo();
+        userinfo.setUsername("老六");
+        userinfo.setPassword("123");
+        userinfo.setPhoto("default.png");
+        int result = userMapper.add3(userinfo);
+        System.out.println("添加: " + result);
+    }
+
+    @Test
+    void getListByParam() {
+        List<Userinfo> list = userMapper.getListByParam(null,null);
+        System.out.println(list);
+    }
 }

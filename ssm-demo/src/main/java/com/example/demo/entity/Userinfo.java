@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -11,9 +12,11 @@ import java.time.LocalDateTime;
  * Time: 22:53
  */
 @Data
-public class Userinfo {
+public class Userinfo implements Serializable {
+    private final long serializableId = 1L;
+
     private int id;
-    private String name;
+    private String username;
     private String password;
     private String photo; //  头像
     private LocalDateTime createtime;
