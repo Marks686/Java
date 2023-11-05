@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -143,5 +144,25 @@ class UserMapperTest {
     void getListByParam() {
         List<Userinfo> list = userMapper.getListByParam(null,null);
         System.out.println(list);
+    }
+
+    @Test
+    void update2() {
+        Userinfo userinfo = new Userinfo();
+        userinfo.setId(13);
+        userinfo.setUsername(null);
+        userinfo.setPassword(null);
+        userinfo.setPhoto("default.png");
+        int result = userMapper.update2(userinfo);
+        System.out.println("修改: " + result);
+    }
+
+    @Test
+    void dels() {
+        List<Integer> ids = new ArrayList<>();
+        ids.add(12);
+        ids.add(13);
+        int result = userMapper.dels(ids);
+        System.out.println("删除: " + result);
     }
 }

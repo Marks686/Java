@@ -109,7 +109,31 @@ s.org/dtd/mybatis-3-mapper.dtd">
             <if test="password != null">
                 and password=#{password}
             </if>
+
         </where>
     </select>
 
+
+    <update id="update2" >
+        update userinfo
+        <set>
+            <if test="username != null">
+                username=#{username},
+            </if>
+            <if test="password != null">
+                password=#{password},
+            </if>
+            <if test="photo != null">
+                photo=#{photo},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="dels">
+        delete from userinfo where id in
+        <foreach collection="ids" open="(" close=")" item="id" separator=",">
+                #{id}
+        </foreach>
+    </delete>
 </mapper>

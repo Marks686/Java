@@ -48,5 +48,9 @@ public interface UserMapper {
     int add3(Userinfo userinfo);
 
     List<Userinfo> getListByParam(String username,String password);
+
+    int update2(Userinfo userinfo);
+
+    int dels(List<Integer> ids);
 }
 
