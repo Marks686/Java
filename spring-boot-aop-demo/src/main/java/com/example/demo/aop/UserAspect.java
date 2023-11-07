@@ -1,9 +1,7 @@
 package com.example.demo.aop;
 
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 /**
@@ -28,7 +26,18 @@ public class UserAspect {
 
     // 后置通知
     @After("pointcut()")
-    public void AfterAdvice(){
+    public void afterAdvice(){
         System.out.println("执行了后置通知.");
+    }
+
+    // 环绕通知
+    @Around("pointcut()")
+    public Object aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
+        System.out.println("进入环绕通知了.");
+        Object obj = null;
+        // 执行目标方法
+        obj = joinPoint.proceed();
+        System.out.println("退出环绕通知了.");
+        return obj;
     }
 }
