@@ -4,6 +4,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,6 +18,14 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 用户登录业务判断
-
+        HttpSession session = request.getSession(false);
+        if (session != null && session.getAttribute("userinfo") != null){
+            // 用户已经登录了
+            return true;
+        }
+        // 没有登录 跳转到登录页面 or 返回401/403 没有权限的状态码
+        response.sendRedirect("/login.html");
+//        response.setStatus(403);
+        return false;
     }
 }
