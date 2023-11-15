@@ -2,12 +2,14 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.UserInfo;
 import com.example.demo.mapper.UserMapper;
+import com.example.demo.service.LogService;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionManager;
 import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.util.StringUtils;
@@ -32,6 +34,8 @@ public class UserController {
     private DataSourceTransactionManager transactionManager;
     @Autowired
     private TransactionDefinition transactionDefinition;
+    @Autowired
+    private LogService logService;
 
     @RequestMapping("/add")
     public int add(UserInfo userInfo){
@@ -59,7 +63,7 @@ public class UserController {
 
         return result;
     }
-    @Transactional  //声明式事务(自动提交)
+    @Transactional(propagation = Propagation.REQUIRED)  //声明式事务(自动提交)
     @RequestMapping("/insert")
     public Integer insert(UserInfo userInfo){
         // 非空效验
@@ -67,17 +71,22 @@ public class UserController {
         || !StringUtils.hasLength(userInfo.getPassword())){
             return 0;
         }
+        //添加用户
         int result = userService.add(userInfo);
-        System.out.println("添加 insert: " + result);
-        try {
-            int num = 10 / 0;
-        } catch (Exception e) {
-//            // 1.将异常继续抛出
-//            throw e;
-            System.out.println(e.getMessage());
-            // 2.使用代码手动回顾事务
-            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+        if (result > 0){
+            //添加日志
+            logService.add();
         }
+        System.out.println("添加 insert: " + result);
+//        try {
+//            int num = 10 / 0;
+//        } catch (Exception e) {
+////            // 1.将异常继续抛出
+////            throw e;
+//            System.out.println(e.getMessage());
+//            // 2.使用代码手动回顾事务
+//            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+//        }
         return result;
     }
 }
