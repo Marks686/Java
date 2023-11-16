@@ -74,10 +74,19 @@ public class UserController {
         //添加用户
         int result = userService.add(userInfo);
         if (result > 0){
-            //添加日志
-            logService.add();
+                //添加日志
+                logService.add();
         }
-        System.out.println("添加 insert: " + result);
+//        if (result > 0){
+//            try {
+//                //添加日志
+//                logService.add();
+//            } catch (Exception e) {
+//                TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+//                System.out.println("异常");
+//            }
+//        }
+//        System.out.println("添加 insert: " + result);
 //        try {
 //            int num = 10 / 0;
 //        } catch (Exception e) {
