@@ -8,6 +8,7 @@
     <title>博客列表</title>
     <link rel="stylesheet" href="css/conmmon.css">
     <link rel="stylesheet" href="css/blog_list.css">
+    <script src="js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -28,14 +29,14 @@
         <div class="container-left">
             <div class="card">
                 <img src="img/doge.jpg" class="avtar" alt="">
-                <h3>比特小可爱</h3>
+                <h3 id="username"></h3>
                 <a href="http:www.github.com">github 地址</a>
                 <div class="counter">
                     <span>文章</span>
                     <span>分类</span>
                 </div>
                 <div class="counter">
-                    <span>2</span>
+                    <span id="artCount"></span>
                     <span>1</span>
                 </div>
             </div>
@@ -67,6 +68,25 @@
             </div>
         </div>
     </div>
+    <script>
+        function showInfo(){
+            jQuery.ajax({
+                url:"/user/showinfo",
+                type:"POST",
+                data:{},
+                success:function(result){
+                    if(result != null && result.code == 200){
+                        jQuery("#username").text(result.data.username);
+                        jQuery("#artCount").text(result.data.artCount);
+
+                    }else{
+                        alert("个人信息加载失败,请重新刷新再试!")
+                    }
+                }
+            });
+        }
+        showInfo();
+    </script>
 </body>
 
 </html>

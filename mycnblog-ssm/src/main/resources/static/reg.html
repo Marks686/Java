@@ -54,19 +54,23 @@
             var password2 = jQuery("#password2");
             if(username.val() == ""){
                 alert("请先输入用户名!")
+                username.focus(); // 将鼠标光标设置到用户名控件
                 return;
             }
             if(password.val() == ""){
                 alert("请先输入密码!")
+                password.focus();
                 return;
             }
             if(password2.val() == ""){
                 alert("请先输入确认密码!")
+                password2.focus();
                 return;
             }
             // 2.判断两次密码是否一致
             if(password.val() != password2.val()){
                 alert("两次输入密码不一致请检查!")
+                password.focus();
                 return;
             }
             // 3.ajax 提交请求
