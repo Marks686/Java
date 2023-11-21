@@ -1,6 +1,7 @@
 package com.example.demo.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,5 +12,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ArticleMapper {
 
-    int getArtCountByUid(Integer uid);
+    int getArtCountByUid(@Param("uid") Integer uid);
 }

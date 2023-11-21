@@ -2,11 +2,13 @@ package com.example.demo.controller;
 
 import com.example.demo.common.AjaxResult;
 import com.example.demo.common.AppVariable;
+import com.example.demo.common.UserSessionUtils;
 import com.example.demo.entity.Userinfo;
 import com.example.demo.entity.vo.UserinfoVO;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.ArticleService;
 import com.example.demo.service.UserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -66,10 +68,48 @@ public class UserController {
     }
 
     @RequestMapping("/showinfo")
-    public AjaxResult showInfo(){
+    public AjaxResult showInfo(HttpServletRequest request){
         UserinfoVO userinfoVO = new UserinfoVO();
         // 1.得到当前登录用户 (从 session 中获取)
+        Userinfo userinfo = UserSessionUtils.getUser(request);
+        if (userinfo == null){
+            return AjaxResult.fail(-1,"非法请求");
+        }
+        // Spring 提供的深克隆方法
+        BeanUtils.copyProperties(userinfo,userinfoVO);
         // 2.得到用户发表文章的总数
+        userinfoVO.setArtCount(articleService.getArtCountByUid(userinfo.getId()));
         return AjaxResult.success(userinfoVO);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
