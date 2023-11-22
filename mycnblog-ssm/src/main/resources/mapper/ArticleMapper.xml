@@ -5,4 +5,7 @@
         select count(*) from articleinfo where uid=#{uid}
     </select>
 
+    <select id="getMyList" resultType="com.example.demo.entity.Articleinfo">
+        select * from articleinfo where uid=#{uid}
+    </select>
 </mapper>
