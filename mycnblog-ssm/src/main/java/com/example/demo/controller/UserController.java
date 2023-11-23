@@ -81,6 +81,13 @@ public class UserController {
         userinfoVO.setArtCount(articleService.getArtCountByUid(userinfo.getId()));
         return AjaxResult.success(userinfoVO);
     }
+
+    // 注销 退出登录
+    @RequestMapping("logout")
+    public AjaxResult logout(HttpSession session){
+        session.removeAttribute(AppVariable.USER_SESSION_KEY);
+        return AjaxResult.success(1);
+    }
 }
 
 

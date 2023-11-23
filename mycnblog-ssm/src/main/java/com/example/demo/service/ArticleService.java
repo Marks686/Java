@@ -21,7 +21,12 @@ public class ArticleService {
     public int getArtCountByUid(Integer uid){
         return articleMapper.getArtCountByUid(uid);
     }
+
     public List<Articleinfo> getMyList(Integer uid){
         return articleMapper.getMyList(uid);
+    }
+
+    public int del(Integer id,Integer uid){
+        return articleMapper.del(id,uid);
     }
 }

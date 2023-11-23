@@ -8,4 +8,8 @@
     <select id="getMyList" resultType="com.example.demo.entity.Articleinfo">
         select * from articleinfo where uid=#{uid}
     </select>
+
+    <delete id="del">
+        delete from articleinfo where id=#{id} and uid=#{uid}
+    </delete>
 </mapper>

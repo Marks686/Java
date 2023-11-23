@@ -18,4 +18,6 @@ public interface ArticleMapper {
     int getArtCountByUid(@Param("uid") Integer uid);
 
     List<Articleinfo> getMyList(@Param("uid") Integer uid);
+
+    int del(@Param("id") Integer id,@Param("uid") Integer uid);
 }
