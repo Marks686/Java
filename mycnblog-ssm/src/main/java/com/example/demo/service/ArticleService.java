@@ -29,4 +29,8 @@ public class ArticleService {
     public int del(Integer id,Integer uid){
         return articleMapper.del(id,uid);
     }
+
+    public Articleinfo getDetail(Integer id){
+        return articleMapper.getDeatile(id);
+    }
 }

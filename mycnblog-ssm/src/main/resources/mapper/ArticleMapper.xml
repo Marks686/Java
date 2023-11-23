@@ -12,4 +12,8 @@
     <delete id="del">
         delete from articleinfo where id=#{id} and uid=#{uid}
     </delete>
+
+    <select id="getDeatile" resultType="com.example.demo.entity.Articleinfo">
+        select * from articleinfo where id=#{id}
+    </select>
 </mapper>

@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.Articleinfo;
 import com.example.demo.entity.Userinfo;
 import com.example.demo.mapper.UserMapper;
 import org.springframework.stereotype.Service;
@@ -24,4 +25,6 @@ public class UserService {
     public Userinfo getUserByName(String username){
         return userMapper.getUserByName(username);
     }
+
+
 }

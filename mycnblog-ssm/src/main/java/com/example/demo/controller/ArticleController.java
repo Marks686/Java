@@ -47,4 +47,12 @@ public class ArticleController {
         }
         return AjaxResult.success(articleService.del(id,user.getId()));
     }
+
+    @RequestMapping("/detail")
+    public AjaxResult getDetail(Integer id){
+        if (id == null || id <= 0){
+            return AjaxResult.fail(-1,"非法参数");
+        }
+        return AjaxResult.success(articleService.getDetail(id));
+    }
 }
