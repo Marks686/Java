@@ -22,4 +22,6 @@ public interface ArticleMapper {
     int del(@Param("id") Integer id,@Param("uid") Integer uid);
 
     Articleinfo getDeatile(@Param("id") Integer id);
+
+    int incrRCount(@Param("id") Integer id);
 }

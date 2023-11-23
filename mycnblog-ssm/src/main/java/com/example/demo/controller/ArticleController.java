@@ -55,4 +55,12 @@ public class ArticleController {
         }
         return AjaxResult.success(articleService.getDetail(id));
     }
+
+    @RequestMapping("/incr-rcount")
+    public AjaxResult incrRCount(Integer id){
+        if (id != null && id > 0){
+            return AjaxResult.success(articleService.incrRCount(id));
+        }
+        return AjaxResult.success(-1,"未知错误");
+    }
 }

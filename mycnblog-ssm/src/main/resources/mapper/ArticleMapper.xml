@@ -16,4 +16,8 @@
     <select id="getDeatile" resultType="com.example.demo.entity.Articleinfo">
         select * from articleinfo where id=#{id}
     </select>
+    
+    <update id="incrRCount">
+        update articleinfo set rcount=rcount+1 where id=#{id}
+    </update>
 </mapper>

@@ -32,14 +32,14 @@
         <div class="container-left">
             <div class="card">
                 <img src="img/doge.jpg" class="avtar" alt="">
-                <h3>比特小可爱</h3>
+                <h3 id="username"></h3>
                 <a href="http:www.github.com">github 地址</a>
                 <div class="counter">
                     <span>文章</span>
                     <span>分类</span>
                 </div>
                 <div class="counter">
-                    <span>2</span>
+                    <span id="artCount"></span>
                     <span>1</span>
                 </div>
             </div>
@@ -86,10 +86,9 @@
                             return kv[1];
                         }
                     }
-
+                }
                 return "";
             }
-        }
         // 查询文章详情
         function getArtDetail(id){
             if(id == ""){
@@ -116,9 +115,35 @@
         }
         getArtDetail(getUrlValue("id"));
         // 查询用户的详情信息
-        function showUser(uid){
-
+        function showUser(id){
+            jQuery.ajax({
+                url:"/user/getuserbyid",
+                type:"POST",
+                data:{"id":id},
+                success:function(result){
+                    if(result != null && result.code == 200 && result.data.id > 0){
+                        jQuery("#username").text(result.data.username);
+                        jQuery("#artCount").text(result.data.artCount);
+                    } else{
+                        alert("查询用户失败请重试!");
+                    } 
+                }
+            });
         }
+        // 阅读量 +1
+        function updateRcount(){
+            // 先得到文章id
+            var id = getUrlValue("id");
+            if(id != ""){
+                jQuery.ajax({
+                    url:"/art/incr-rcount",
+                    type:"POST",
+                    data:{"id":id},
+                    success:function(result){}
+                });
+            }
+        }
+        updateRcount()
     </script> 
 </body>
 

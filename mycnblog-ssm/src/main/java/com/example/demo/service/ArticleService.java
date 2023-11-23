@@ -33,4 +33,8 @@ public class ArticleService {
     public Articleinfo getDetail(Integer id){
         return articleMapper.getDeatile(id);
     }
+
+    public int incrRCount(Integer id){
+        return articleMapper.incrRCount(id);
+    }
 }
