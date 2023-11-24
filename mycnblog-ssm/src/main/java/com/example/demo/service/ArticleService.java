@@ -37,4 +37,12 @@ public class ArticleService {
     public int incrRCount(Integer id){
         return articleMapper.incrRCount(id);
     }
+
+    public int add(Articleinfo articleinfo){
+        return articleMapper.add(articleinfo);
+    }
+
+    public int update(Articleinfo articleinfo){
+        return articleMapper.update(articleinfo);
+    }
 }
