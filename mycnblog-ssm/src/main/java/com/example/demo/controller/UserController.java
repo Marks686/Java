@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.common.AjaxResult;
 import com.example.demo.common.AppVariable;
+import com.example.demo.common.PasswordUtils;
 import com.example.demo.common.UserSessionUtils;
 import com.example.demo.entity.Userinfo;
 import com.example.demo.entity.vo.UserinfoVO;
@@ -41,6 +42,8 @@ public class UserController {
                 !StringUtils.hasLength(userinfo.getPassword())){
             return AjaxResult.fail(-1,"非法参数");
         }
+        // 密码加盐处理
+        userinfo.setPassword(PasswordUtils.encrypt(userinfo.getPassword()));
         return AjaxResult.success(userService.reg(userinfo));
     }
 
@@ -55,7 +58,7 @@ public class UserController {
         if (userinfo != null && userinfo.getId() > 0){
             // 有效的用户名
             // 两个密码是否相同
-            if (password.equals(userinfo.getPassword())){
+            if (PasswordUtils.check(password,userinfo.getPassword())){
                 // 登录成功
                 // 将用户存储到 session
                 HttpSession session = request.getSession();
