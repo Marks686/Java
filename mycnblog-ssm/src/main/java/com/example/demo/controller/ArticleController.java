@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -107,6 +108,41 @@ public class ArticleController {
         articleinfo.setUpdatetime(LocalDateTime.now());
         return AjaxResult.success(articleService.update(articleinfo));
     }
+
+    /**
+     * 查询列表根据分页
+     * @param pindex 当前页码 从1开始
+     * @param psize  每页显示条数
+     * @return
+     */
+    @RequestMapping("/listbypage")
+    public AjaxResult getListByPage(Integer pindex,Integer psize){
+
+        // 1.参数校正
+        if (pindex == null || pindex <= 1){
+            pindex = 1;
+        }
+        if (psize == null || psize <= 1){
+            psize = 2;
+        }
+        // 分页公式的值 = (当前页码 - 1) * 每页显示条数
+        int offset = (pindex - 1) * psize;
+        // 文章列表数据
+        List<Articleinfo> list = articleService.getListByPage(psize,offset);
+        // 当前列表总共有多少页
+        // a.查询总共有多少条数据
+        int totalCount = articleService.getCount();
+        // b.总条数/psize(每页显示条数)
+        double pcountdb = totalCount / (psize * 1.0);
+        // c.使用进一法得到总页数
+        int pcount = (int) Math.ceil(pcountdb);
+        HashMap<String,Object> result = new HashMap<>();
+        result.put("list",list);
+        result.put("pcount",pcount);
+
+        return AjaxResult.success(result);
+    }
+
 }
 
 

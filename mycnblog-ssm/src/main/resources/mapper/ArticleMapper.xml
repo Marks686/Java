@@ -29,4 +29,12 @@
         update articleinfo set title=#{title},content=#{content},updatetime=#{updatetime}
         where id=#{id} and uid=#{uid}
     </update>
+
+    <select id="getListByPage" resultType="com.example.demo.entity.Articleinfo">
+        select * from articleinfo limit #{psize} offset #{offsize}
+    </select>
+
+    <select id="getCount" resultType="Integer">
+        select count(*) from articleinfo
+    </select>
 </mapper>
