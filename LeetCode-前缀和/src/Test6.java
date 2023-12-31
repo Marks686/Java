@@ -3,7 +3,7 @@ import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
- * Description:974. 和可被 K 整除的子数组
+ * Description:974. 和可被K整除的子数组
  * Date: 2023-12-30
  * Time: 19:31
  */
