@@ -1,0 +1,14 @@
+2024-01-30 16:36:32.485  INFO 34240 --- [main] com.bite.blog.SpringBlogApplication      : Starting SpringBlogApplication using Java 1.8.0_192 on 马尔科686 with PID 34240 (D:\代码gitee\java_code\spring-blog\target\classes started by 李凯轩 in D:\代码gitee\java_code\spring-blog)
+2024-01-30 16:36:32.487  INFO 34240 --- [main] com.bite.blog.SpringBlogApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-01-30 16:36:33.928  INFO 34240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-01-30 16:36:33.937  INFO 34240 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-01-30 16:36:33.937  INFO 34240 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.82]
+2024-01-30 16:36:34.081  INFO 34240 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-01-30 16:36:34.081  INFO 34240 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1560 ms
+2024-01-30 16:36:34.638  INFO 34240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-01-30 16:36:34.646  INFO 34240 --- [main] com.bite.blog.SpringBlogApplication      : Started SpringBlogApplication in 2.529 seconds (JVM running for 2.975)
+2024-01-30 16:36:53.221  INFO 34240 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-01-30 16:36:53.221  INFO 34240 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-30 16:36:53.223  INFO 34240 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-01-30 16:36:53.254  INFO 34240 --- [http-nio-8080-exec-1] com.bite.blog.config.LoginInterceptor    : 从header中获取token, token:null
+2024-01-30 16:37:07.895  INFO 34240 --- [http-nio-8080-exec-8] com.bite.blog.config.LoginInterceptor    : 从header中获取token, token:null
