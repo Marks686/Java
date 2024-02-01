@@ -27,7 +27,7 @@ class BlogInfoMapperTest {
     void updateBlog() {
         BlogInfo blogInfo = new BlogInfo();
         blogInfo.setTitle("test111111");
-        blogInfo.setContent("特殊涂塑钢管搜狗公司干撒个");
+        blogInfo.setContent("");
         blogInfo.setId(3);
         blogInfoMapper.updateBlog(blogInfo);
     }
@@ -41,7 +41,7 @@ class BlogInfoMapperTest {
     void insertBlog() {
         BlogInfo blogInfo = new BlogInfo();
         blogInfo.setTitle("test");
-        blogInfo.setContent("特殊涂塑钢管搜狗公司干撒个");
+        blogInfo.setContent("");
         blogInfo.setUserId(1);
         blogInfoMapper.insertBlog(blogInfo);
     }
