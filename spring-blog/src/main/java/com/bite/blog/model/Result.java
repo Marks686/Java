@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 public class Result<T> {
-    private int code;//200-成功  -1 失败
-    private String errorMsg;
+    private int code;//  200：成功    -1：失败
+    private String errorMsg;//错误原因
     private T data;
 
     public static <T> Result<T> success(T data){

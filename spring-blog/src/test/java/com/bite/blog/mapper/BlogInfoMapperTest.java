@@ -27,7 +27,7 @@ class BlogInfoMapperTest {
     void updateBlog() {
         BlogInfo blogInfo = new BlogInfo();
         blogInfo.setTitle("test111111");
-        blogInfo.setContent("");
+        blogInfo.setContent("测试修改内容");
         blogInfo.setId(3);
         blogInfoMapper.updateBlog(blogInfo);
     }
@@ -41,7 +41,7 @@ class BlogInfoMapperTest {
     void insertBlog() {
         BlogInfo blogInfo = new BlogInfo();
         blogInfo.setTitle("test");
-        blogInfo.setContent("");
+        blogInfo.setContent("测试插入内容");
         blogInfo.setUserId(1);
         blogInfoMapper.insertBlog(blogInfo);
     }
