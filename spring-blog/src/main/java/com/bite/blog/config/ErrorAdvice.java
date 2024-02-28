@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ErrorAdvice {
     @ExceptionHandler
     public Result errorHandler(Exception e){
-        Result result = new Result<>();
+        Result result =  new Result<>();
         result.setErrorMsg("内部发生错误, 请联系管理员");
         result.setCode(Constants.RESULT_FAIL);
         return result;

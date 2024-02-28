@@ -29,6 +29,7 @@ public class BlogService {
     }
 
     public Integer delete(Integer blogId) {
-        return blogInfoMapper.deleteBlog(blogId);
+        return
+                +blogInfoMapper.deleteBlog(blogId);
     }
 }

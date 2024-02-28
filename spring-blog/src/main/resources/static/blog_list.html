@@ -58,7 +58,7 @@
         function getBlogList(){
             $.ajax({
                 type:"get",
-                url:"/blog/getlist",
+                url:"/blog/getlist", 
                 success:function(result){
                     if(result.code==200 && result.data!=null){
                         var blogList = result.data;
