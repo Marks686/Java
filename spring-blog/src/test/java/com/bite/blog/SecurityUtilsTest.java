@@ -9,14 +9,13 @@ public class SecurityUtilsTest {
         //加密
         String md5Str = DigestUtils.md5DigestAsHex("123456".getBytes());
         System.out.println(md5Str);
-
         //
-        String uuid = UUID.randomUUID().toString();// 随机生成一个字符串, 且不会重复
-        System.out.println(uuid.replace("-",""));
+//        String uuid = UUID.randomUUID().toString();// 随机生成一个字符串, 且不会重复
+//        System.out.println(uuid.replace("-",""));
 //
-//        System.out.println(encry("123456"));
-//        boolean verify = verify("123457", "84f37ec4949b407bbde0373dd648c26c37843422e00a0c1b764762ae77aa3144");
-//        System.out.println(verify);
+        System.out.println(encry("123456"));
+        boolean verify = verify("123456", "123456");
+        System.out.println(verify);
     }
 
     /**

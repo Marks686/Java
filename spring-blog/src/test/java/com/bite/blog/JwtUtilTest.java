@@ -43,7 +43,7 @@ public class JwtUtilTest {
     }
     @Test
     public void parseToken(){
-        String token = "eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiemhhbmdzYW4iLCJpZCI6NSwiZXhwIjoxNzA1NjM1NjU3fQ.jK1jhAsFGWRb6ZVZm6PPoVZp_bzsTT_i2Y3zUyMyvcU";
+        String token = "eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiemhhbmdzYW4iLCJpZCI6NSwiZXhwIjoxNzA5MDg0NzAwfQ.Vv_K-Emhkk1vNeATLI2z-NJsOgbocSpZPZapJr1hzqo";
         JwtParser build = Jwts.parserBuilder().setSigningKey(key).build();
         Claims body = build.parseClaimsJws(token).getBody();
         System.out.println(body);
