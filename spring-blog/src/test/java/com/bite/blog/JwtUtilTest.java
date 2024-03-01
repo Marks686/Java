@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class JwtUtilTest {
     //过期时间: 30分钟
-    private static final long expiration = 30 * 60 * 1000;
+    private static final long expiration = 60 * 60 * 1000;
     private static final String secretString = "5CRMLhF7dQnOLCNjJw8dawYK2zTUxS4jDgUW2L99Tdo=";
     private static final Key key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(secretString));
     //1. 生成token
