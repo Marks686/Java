@@ -9,9 +9,9 @@ import java.util.Arrays;
 public class Test {
     public static void main(String[] args) {
         int[] arr = new int[] {1,4,6,2,8,9};
-//        int b = binbinarySearchary(arr,9);
-//        System.out.println(b);
-//        bubbleSort(arr);
+        int b = binbinarySearchary(arr,9);
+        System.out.println(b);
+        bubbleSort(arr);
         Arrays.sort(arr);
         System.out.println(Arrays.toString(arr));
 
