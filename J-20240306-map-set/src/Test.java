@@ -13,8 +13,12 @@ public class Test {
         for (int i = 0; i < array.length; i++) {
             binarySearchTree.insert(array[i]);
         }
-        System.out.println("--");
-        System.out.println(binarySearchTree.search(2));
+       System.out.println("----------");
+       System.out.println(binarySearchTree.search(12));
+        binarySearchTree.remove(12);
+        System.out.println("========");
+        System.out.println(binarySearchTree.search(12));
+
     }
 
 
