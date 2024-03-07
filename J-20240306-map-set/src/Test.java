@@ -1,9 +1,6 @@
 import binarysearchtree.BinarySearchTree;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -50,9 +47,17 @@ public class Test {
     }
 
     public static void main(String[] args) {
+        Set<String> set = new TreeSet<>();
+        set.add("sunny");
+        set.add("hello");
+        set.add("the");
+        System.out.println(set);
 
+        Iterator<String> iterator = set.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
     }
 
 
-//        Map<String,Integer> map2 = new HashMap<>();
 }
