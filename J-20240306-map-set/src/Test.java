@@ -1,4 +1,5 @@
 import binarysearchtree.BinarySearchTree;
+import demo1.HashBack;
 
 import java.util.*;
 
@@ -46,7 +47,7 @@ public class Test {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main3(String[] args) {
         Set<String> set = new TreeSet<>();
         set.add("sunny");
         set.add("hello");
@@ -57,6 +58,15 @@ public class Test {
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
+    }
+
+    public static void main(String[] args) {
+        HashBack hashBack = new HashBack();
+        hashBack.put(1,11);
+        hashBack.put(2,22);
+        hashBack.put(9,99);
+
+        System.out.println(hashBack.get(9));
     }
 
 
