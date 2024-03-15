@@ -1,3 +1,4 @@
+import javax.swing.tree.TreeNode;
 import java.util.Random;
 
 /**
@@ -57,21 +58,32 @@ public class Test {
             nums[j] = t;
         }
     }
-    class Solution
-    {
-        long prev = Long.MIN_VALUE;
-        public boolean isValidBST(TreeNode root)
-        {
-            if(root == null) return true;
-            boolean left = isValidBST(root.left);
-            // 剪枝
-            if(left == false) return false;
-            boolean cur = false;
-            if(root.val > prev) cur = true;
-            if(cur == false) return false;
-            prev = root.val;
-            boolean right = isValidBST(root.right);
-            return left && cur && right;
+//215. 数组中的第K个最大元素
+    class Solution {
+        public int findKthLargest(int[] nums, int k) {
+            return qsort(nums,0,nums.length - 1,k);
+        }
+        public int qsort(int[] nums, int l, int r, int k){
+            if(l == r) return nums[l];
+
+            int key = nums[new Random().nextInt(r - l + 1) + l];
+
+            int left = l - 1,right = r + 1, i = l;
+            while(i < right){
+                if(nums[i] < key) swap(nums,++left,i++);
+                else if(nums[i] == key) i++;
+                else swap(nums,--right,i);
+            }
+            int b = right - left - 1;
+            int c = r - right + 1;
+            if(c >= k) return qsort(nums,right,r,k);
+            else if(b + c >= k) return key;
+            else return qsort(nums,l,left,k - b - c);
+        }
+        public void swap(int[] nums,int left,int right){
+            int t = nums[left];
+            nums[left] = nums[right];
+            nums[right] = t;
         }
     }
 
