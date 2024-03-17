@@ -7,6 +7,9 @@
 public class ListNode {
     private boolean val;
 
+    public ListNode(int i) {
+    }
+
     public boolean isVal() {
         return val;
     }
