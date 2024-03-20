@@ -44,4 +44,28 @@ public class Test {
 //        return newHead.next;
 //    }
 //}
+    //24. 两两交换链表中的节点
+
+    class Solution {
+        public ListNode swapPairs(ListNode head) {
+            if(head == null || head.next == null) return head;
+            ListNode newHead = new ListNode(0);
+            newHead.next = head;
+
+            ListNode prev = newHead,cur = prev.next,next = cur.next,nnext = next.next;
+            while(cur != null && next != null){
+                //交换节点
+                prev.next = next;
+                next.next = cur;
+                cur.next = nnext;
+
+                //修改指针
+                prev = cur;
+                cur = nnext;
+                if(cur != null) next = cur.next;
+                if(next != null) nnext = next.next;
+            }
+            return newHead.next;
+        }
+    }
 }
