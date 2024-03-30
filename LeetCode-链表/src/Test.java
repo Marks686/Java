@@ -71,7 +71,7 @@ public class Test {
             return newHead.next;
         }
     }
-    class Solution
+    class Solution3
     {
         public int minNumberOfFrogs(String c)
         {
@@ -144,5 +144,35 @@ public class Test {
                 }
             }
         }
+
     }
+//23. 合并 K 个升序链表
+    class Solution5 {
+        public ListNode mergeKLists(ListNode[] lists) {
+            int k = lists.length;
+            ListNode dummyHead = new ListNode(0);
+            ListNode tail = dummyHead;
+            while (true) {
+                ListNode minNode = null;
+                int minPointer = -1;
+                for (int i = 0; i < k; i++) {
+                    if (lists[i] == null) {
+                        continue;
+                    }
+                    if (minNode == null || lists[i].val < minNode.val) {
+                        minNode = lists[i];
+                        minPointer = i;
+                    }
+                }
+                if (minPointer == -1) {
+                    break;
+                }
+                tail.next = minNode;
+                tail = tail.next;
+                lists[minPointer] = lists[minPointer].next;
+            }
+            return dummyHead.next;
+        }
+    }
+
 }
