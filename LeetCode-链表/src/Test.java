@@ -254,5 +254,17 @@ public class Test {
             return newHead.next;
         }
     }
-
+//217. 存在重复元素
+class Solution8 {
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> hash = new HashSet<>();
+        for(int x : nums){
+            if(hash.contains(x)){
+                return true;
+            }
+            hash.add(x);
+        }
+        return false;
+    }
+}
 }
