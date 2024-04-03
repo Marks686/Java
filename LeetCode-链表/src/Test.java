@@ -48,7 +48,6 @@ public class Test {
 //    }
 //}
     //24. 两两交换链表中的节点
-
     class Solution {
         public ListNode swapPairs(ListNode head) {
             if(head == null || head.next == null) return head;
@@ -255,6 +254,7 @@ public class Test {
         }
     }
 //217. 存在重复元素
+
 class Solution8 {
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> hash = new HashSet<>();
