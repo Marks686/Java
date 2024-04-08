@@ -2,11 +2,18 @@ package com.bite.book.service;
 
 import com.bite.book.dao.BookDao;
 import com.bite.book.model.BookInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class BookService {
-    private BookDao bookDao = new BookDao();
+
+    @Autowired
+    private BookDao bookDao;
+
+
     public List<BookInfo> getBookList(){
         //1.获取图书数据  mock表示虚拟的假数据
         List<BookInfo> bookInfos = bookDao.mockData();
