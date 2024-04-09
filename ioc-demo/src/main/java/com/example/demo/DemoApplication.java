@@ -1,6 +1,9 @@
 package com.example.demo;
 
+import com.example.demo.ioc.component.UserComponent;
+import com.example.demo.ioc.configuration.UserConfiguration;
 import com.example.demo.ioc.controller.UserController;
+import com.example.demo.ioc.repo.UserRepository;
 import com.example.demo.ioc.service.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +23,6 @@ public class  DemoApplication {
         userService.doService();
 
 
-
         //根据名称获取bean
         UserService userService2 = (UserService) context.getBean("userService");
         userService2.doService();
@@ -29,5 +31,15 @@ public class  DemoApplication {
         //根据名称和类型获取bean
         UserService userService3 = context.getBean("userService",UserService.class);
         userService3.doService();
+
+        //读取Repository bean 的代码：
+        UserRepository userRepository = context.getBean(UserRepository.class);
+        userRepository.doRepository();
+
+        UserComponent userComponent = context.getBean(UserComponent.class);
+        userComponent.doComponent();
+
+        UserConfiguration userConfiguration = context.getBean(UserConfiguration.class);
+        userConfiguration.doConfiguration();
     }
 }
