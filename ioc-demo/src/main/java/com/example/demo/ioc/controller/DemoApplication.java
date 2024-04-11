@@ -27,7 +27,6 @@ public class  DemoApplication {
 //        UserService userService2 = (UserService) context.getBean("userService");
 //        userService2.doService();
 //
-//
 //        //根据名称和类型获取bean
 //        UserService userService3 = context.getBean("userService",UserService.class);
 //        userService3.doService();
