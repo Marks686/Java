@@ -3,11 +3,11 @@ package com.bite.book.service;
 import com.bite.book.dao.BookDao;
 import com.bite.book.model.BookInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component
+@Service
 public class BookService {
 
     @Autowired
