@@ -35,7 +35,21 @@
     });
 
     $("#checkCaptcha").click(function () {
-        alert("验证码校验");
+        $.ajax({
+          type:"Get",
+          url:"/admin/check",
+          data:{
+            captcha:$("#inputCaptcha").val()
+          },
+          success:function(result){
+            if(result){
+              location.href = "success.html";
+            }else{
+              alert("验证码校验");
+            }
+          }
+        });
+        
     });
 
   </script>
