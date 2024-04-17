@@ -1,0 +1,22 @@
+#server:
+#  port: 9090
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1/mycnblog?characterEncoding=utf8
+    username: root
+    password: 123456
+
+demo:
+  key1: hello,yml
+
+student:
+  id: 18
+  name: zhangsan
+  age: 12
+
+dbtypes:
+  name:
+    - mysql
+    - sqlserver
+    - db2

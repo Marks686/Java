@@ -15,13 +15,13 @@ public class UserController {
     private UserService userService;
 
 
-//    @Qualifier("userInfo2")
-//    @Autowired
-//    private UserInfo userInfo;
+    @Qualifier("userInfo2")
+    @Autowired
+    private UserInfo userInfo;
 
     //使用@Resource指定bean
-    @Resource(name = "userInfo1")
-    private UserInfo userInfo;
+//    @Resource(name = "userInfo1")
+//    private UserInfo userInfo;
 
     public UserController(){
 
