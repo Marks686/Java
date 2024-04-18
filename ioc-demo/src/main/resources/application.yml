@@ -20,3 +20,8 @@ dbtypes:
     - mysql
     - sqlserver
     - db2
+
+
+logging:
+  level:
+    root: debug
