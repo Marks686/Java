@@ -22,6 +22,18 @@ dbtypes:
     - db2
 
 
-logging:
-  level:
-    root: debug
+#logging:
+#  level:
+#    root: debug
+#
+#  file:
+#    name: aaa.log
+
+#  # 日志分割
+#  logback:
+#    rollingpolicy:
+#      max-file-size: 1KB
+
+#  # 修改日志格式
+#  pattern:
+#    console:
