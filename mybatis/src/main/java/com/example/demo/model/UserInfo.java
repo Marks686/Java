@@ -12,7 +12,7 @@ public class UserInfo {
     private Integer age;
     private Integer gender;
     private String phone;
-    private Integer delete_flag;
-    private Date create_time;
-    private Date update_time;
+    private Integer deleteFlag;
+    private Date createTime;
+    private Date updateTime;
 }
