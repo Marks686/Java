@@ -38,9 +38,12 @@ public interface UserInfoMapper {
 
 
     @ResultMap(value = "BaseMap")
-    @Select("select * from userinfo where id= #{id}")
+    @Select("select * from userinfo where id= ${id}")
     UserInfo selectOne(Integer id);
 
+    @ResultMap(value = "BaseMap")
+    @Select("select * from userinfo where username= #{username}")
+    List<UserInfo> selectByName(String username);
 
     /**
      * 结果映射
@@ -69,4 +72,16 @@ public interface UserInfoMapper {
 
     @Update("update userinfo set age = #{age} where id = #{id}")
     Integer update(UserInfo id);
+
+
+    /**
+     *
+     * @param sort
+     * @return
+     */
+    @Select("select * from userinfo order by id  ${sort}")
+    List<UserInfo> selectUserSort(String sort);
+
+    @Select("select * from userinfo where username like '%${username}%'")
+    List<UserInfo> selectUserByLike(String username);
 }

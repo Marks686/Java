@@ -89,4 +89,18 @@ class UserInfoMapperTest {
     }
 
 
+    @Test
+    void selectByName() {
+        log.info(userInfoMapper.selectByName("' or 1='1").toString());
+    }
+
+    @Test
+    void selectUserSort() {
+        log.info(userInfoMapper.selectUserSort("asc").toString());
+    }
+
+    @Test
+    void selectUserByLike() {
+        log.info(userInfoMapper.selectUserByLike("java").toString());
+    }
 }
