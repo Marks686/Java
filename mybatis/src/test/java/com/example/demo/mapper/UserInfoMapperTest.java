@@ -51,7 +51,7 @@ class UserInfoMapperTest {
 
     @Test
     void selectOne() {
-        log.info(userInfoMapper.selectOne(1).toString());
+        log.info(userInfoMapper.selectOne(2).toString());
     }
 
     @Test
