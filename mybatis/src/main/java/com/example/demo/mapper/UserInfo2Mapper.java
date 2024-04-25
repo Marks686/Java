@@ -50,4 +50,5 @@ public interface UserInfo2Mapper {
             "</script>")
     List<UserInfo> selectByCondition3(UserInfo userInfo);
 
+    Integer updateByCondition(UserInfo userInfo);
 }

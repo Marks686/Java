@@ -85,4 +85,13 @@
         </where>
     </select>
 
+    <update id="updateByCondition">
+        update userinfo
+        set
+        username = #{username},
+        age = #{age},
+        gender = #{gender}
+        where id = 6
+    </update>
+
 </mapper>
