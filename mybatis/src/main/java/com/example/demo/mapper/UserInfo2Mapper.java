@@ -51,4 +51,15 @@ public interface UserInfo2Mapper {
     List<UserInfo> selectByCondition3(UserInfo userInfo);
 
     Integer updateByCondition(UserInfo userInfo);
+
+
+//    /**
+//     * 使用set标签
+//     * @param userInfo
+//     * @return
+//     */
+//    Integer updateByCondition2(UserInfo userInfo);
+
+
+    Integer batchDelete(List<Integer> ids);
 }

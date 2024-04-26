@@ -8,6 +8,9 @@ import org.springframework.boot.test.context.SpringBootContextLoader;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
 
+import java.sql.Array;
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
@@ -56,5 +59,29 @@ class UserInfo2MapperTest {
 //        userInfo.setAge(14);
         userInfo2Mapper.selectByCondition3(userInfo);
         log.info(userInfo.toString());
+    }
+
+    @Test
+    void updateByCondition() {
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUsername("libai1");
+//        userInfo.setGender(0);
+//        userInfo.setAge(14);
+        userInfo2Mapper.updateByCondition(userInfo);
+    }
+
+
+//    @Test
+//    void updateByCondition2() {
+//        UserInfo userInfo = new UserInfo();
+//        userInfo.setUsername("libai2024-01");
+////        userInfo.setGender(0);
+////        userInfo.setAge(14);
+//        userInfo2Mapper.updateByCondition2(userInfo);
+//    }
+
+    @Test
+    void batchDelete() {
+        userInfo2Mapper.batchDelete(Arrays.asList(7,8,9));
     }
 }

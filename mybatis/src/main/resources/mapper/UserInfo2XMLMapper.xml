@@ -85,13 +85,48 @@
         </where>
     </select>
 
-    <update id="updateByCondition">
+<!--    <update id="updateByCondition">-->
+<!--        update userinfo-->
+<!--        set-->
+<!--        <trim suffixOverrides=",">-->
+<!--            <if test="username!=null">-->
+<!--                username = #{username},-->
+<!--            </if>-->
+<!--            <if test="age!=null">-->
+<!--                age = #{age},-->
+<!--            </if>-->
+<!--            <if test="gender!=null">-->
+<!--                gender = #{gender}-->
+<!--            </if>-->
+<!--        </trim>-->
+<!--        where id = 6-->
+<!--    </update>-->
+
+
+    <update id="updateByCondition2">
         update userinfo
-        set
-        username = #{username},
-        age = #{age},
-        gender = #{gender}
+        <set>
+            <if test="username!=null">
+                username = #{username},
+            </if>
+            <if test="age!=null">
+                age = #{age},
+            </if>
+            <if test="gender!=null">
+                gender = #{gender}
+            </if>
+        </set>
         where id = 6
     </update>
+
+
+    <delete id="batchDelete">
+         delete from userinfo
+         where id in
+         <foreach collection="ids" separator="," item="id" open="(" close=")">
+            #{id}
+         </foreach>
+    </delete>
+
 
 </mapper>
