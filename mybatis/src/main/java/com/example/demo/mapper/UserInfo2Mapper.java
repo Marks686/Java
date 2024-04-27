@@ -61,5 +61,5 @@ public interface UserInfo2Mapper {
 //    Integer updateByCondition2(UserInfo userInfo);
 
 
-    Integer batchDelete(List<Integer> ids);
+    Integer batchDelete(@Param("ids") List<Integer> ids);
 }
