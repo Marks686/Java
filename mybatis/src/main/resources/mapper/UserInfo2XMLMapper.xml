@@ -54,21 +54,21 @@
     </insert>
 
 
-<!--    <select id="selectByCondition" resultType="com.example.demo.model.UserInfo">-->
-<!--        select * from userinfo-->
-<!--        where-->
-<!--        <trim prefixOverrides="and">-->
-<!--            <if test="username!=null">-->
-<!--                username = #{username}-->
-<!--            </if>-->
-<!--            <if test="age!=null">-->
-<!--                and age = #{age}-->
-<!--            </if>-->
-<!--            <if test="gender!=null">-->
-<!--                and gender = #{gender}-->
-<!--            </if>-->
-<!--        </trim>-->
-<!--    </select>-->
+    <select id="selectByCondition" resultType="com.example.demo.model.UserInfo">
+        select * from userinfo
+        where
+        <trim prefixOverrides="and">
+            <if test="username!=null">
+                username = #{username}
+            </if>
+            <if test="age!=null">
+                and age = #{age}
+            </if>
+            <if test="gender!=null">
+                and gender = #{gender}
+            </if>
+        </trim>
+    </select>
 
     <select id="selectByCondition" resultType="com.example.demo.model.UserInfo">
         select * from userinfo
