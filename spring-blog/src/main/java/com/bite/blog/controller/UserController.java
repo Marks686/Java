@@ -5,6 +5,7 @@ import com.bite.blog.model.UserInfo;
 import com.bite.blog.service.UserService;
 import com.bite.blog.utils.JwtUtils;
 import com.bite.blog.utils.SecurityUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @RequestMapping("/user")
 @RestController
 public class UserController {
@@ -22,6 +24,7 @@ public class UserController {
 
     @RequestMapping("/login")
     public Result login(String userName, String password){
+        log.info("UserController.login 接收到请求userName: {}, password: {}");
         /**
          * 1. 参数校验
          * 2. 密码校验
