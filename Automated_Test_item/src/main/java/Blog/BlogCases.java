@@ -26,7 +26,7 @@ public class BlogCases extends InitAndEnd{
 
     public static Stream<Arguments> Generator() {
         return Stream.of(Arguments.arguments(
-                "http://127.0.0.1:9092/blog_detail.html",
+                "http://1.14.165.126:9092/blog_detail.html",
                 "博客详情页",
                 "自动化测试"
                 ));
@@ -41,7 +41,7 @@ public class BlogCases extends InitAndEnd{
     void LoginSuccess(String username, String password,String blog_list_url) throws InterruptedException {
         System.out.println(username + password + blog_list_url);
         // 打开博客登录页面
-        webDriver.get("http://127.0.0.1:9092/blog_login.html");
+        webDriver.get("http://1.14.165.126:9092/blog_login.html");
         webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         // 输入账号 zhangsan
         webDriver.findElement(By.cssSelector("#username")).sendKeys(username);
@@ -92,7 +92,7 @@ public class BlogCases extends InitAndEnd{
 //        // 点击提交按钮
 //        webDriver.findElement(By.cssSelector("#submit")).click();
 //        sleep(300);
-        webDriver.get("http://127.0.0.1:9092/blog_list.html");
+        webDriver.get("http://1.14.165.126:9092/blog_list.html");
         // 获取页面上所有博客标题对应的元素
         webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         int title_num = webDriver.findElements(By.cssSelector(".title")).size();
@@ -151,7 +151,7 @@ public class BlogCases extends InitAndEnd{
         sleep(3000);
         // 获取当前页面url
         String cur_url = webDriver.getCurrentUrl();
-        Assertions.assertEquals("http://127.0.0.1:9092/blog_list.html", cur_url);
+        Assertions.assertEquals("http://1.14.165.126:9092/blog_list.html", cur_url);
     }
 
     /**
@@ -161,7 +161,7 @@ public class BlogCases extends InitAndEnd{
     @Order(5)
     @Test
     void BlogInfoChecked() {
-        webDriver.get("http://127.0.0.1:9092/blog_list.html");
+        webDriver.get("http://1.14.165.126:9092/blog_list.html");
         // 获取第一篇博客标题
         String first_blog_title = webDriver.findElement(By.cssSelector("body > div.container > div.right > div:nth-child(1) > div.title")).getText();
         // 获取第一篇博客发布时间
@@ -185,7 +185,7 @@ public class BlogCases extends InitAndEnd{
     @Test
     void DeleteBlog() throws InterruptedException {
         // 打开博客列表页面
-        webDriver.get("http://127.0.0.1:9092/blog_list.html");
+        webDriver.get("http://1.14.165.126:9092/blog_list.html");
         // 点击全文按钮
         webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         webDriver.findElement(By.cssSelector("body > div.container > div.right > div:nth-child(1) > a")).click();
@@ -212,7 +212,7 @@ public class BlogCases extends InitAndEnd{
         webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         // 校验url(登录url)
         String cur_url = webDriver.getCurrentUrl();
-        Assertions.assertEquals("http://127.0.0.1:9092/blog_login.html", cur_url);
+        Assertions.assertEquals("http://1.14.165.126:9092/blog_login.html", cur_url);
         // 校验提交按钮
         WebElement webElement = webDriver.findElement(By.cssSelector("#submit"));
         Assertions.assertNotNull(webElement);
