@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * Definition for singly-linked list.
@@ -320,5 +319,102 @@ class Solution10 {
             }
         }
         return ret;
+    }
+}
+
+
+class Solution11 {
+    public int[] twoSum(int[] price, int target) {
+        int left = 0;
+        int right = price.length - 1;
+        while(left < right){
+            if(price[left] + price[right] == target){
+                return new int[] {price[left],price[right]};
+            }else if(price[left] + price[right] > target){
+                right--;
+            }else{
+                left++;
+            }
+        }
+        return new int[]{0};
+    }
+}
+
+class Solution12 {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> ret = new ArrayList<>();
+
+
+        Arrays.sort(nums);
+
+        int n = nums.length;
+        for(int i =0; i < n;){
+            if(nums[i] > 0) break;
+            int left = i+1;
+            int right = n-1;
+            int target = -nums[i];
+            while(left < right){
+                int sum = nums[left] + nums[right];
+                if(sum > target){
+                    right--;
+                }else if(sum < target){
+                    left++;
+                }else{
+                    ret.add(new ArrayList<Integer>(Arrays.asList(nums[i],nums[left],nums[right])));
+                    left++;
+                    right--;
+                    while(left < right && nums[left] == nums[left-1]){
+                        left++;
+                    }
+                    while(left < right && nums[right] == nums[right+1]){
+                        right--;
+                    }
+                }
+            }
+            i++;
+            while(i<n && nums[i] == nums[i-1]){
+                i++;
+            }
+        }
+        return ret;
+    }
+}
+
+class Solution13 {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer,Integer> hash = new HashMap<>();
+
+
+        for(int i =0; i< nums.length;i++){
+            int x = target - nums[i];
+            if(hash.containsKey(x)){
+                return new int[]{i,hash.get(x)};
+            }
+            hash.put(nums[i],i);
+        }
+        return new int[]{-1,-1};
+    }
+}
+
+class Solution14 {
+    public boolean CheckPermutation(String s1, String s2) {
+        if(s1.length() != s2.length()){
+            return false;
+        }
+
+        int[] hash = new int[26];
+
+        for(int i = 0; i < s1.length(); i++){
+
+            hash[s1.charAt(i) - 'a']++;
+        }
+        for(int i = 0; i < s2.length();i++){
+            hash[s2.charAt(i) - 'a']--;
+            if(hash[s2.charAt(i) - 'a'] < 0){
+                return false;
+            }
+        }
+        return true;
+
     }
 }
