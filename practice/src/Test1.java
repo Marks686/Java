@@ -466,3 +466,20 @@ class Solution17 {
         return new ArrayList(hash.values());
     }
 }
+
+class Solution18 {
+    public int minSubArrayLen(int target, int[] nums) {
+        int sum = 0;
+        int len = Integer.MAX_VALUE;
+        int n = nums.length;
+        for(int left = 0,right = 0; right < n; right++){
+            sum += nums[right];
+
+            while(sum >= target){
+                len = Math.min(len,right-left+1);
+                sum -= nums[left++];
+            }
+        }
+        return len == Integer.MAX_VALUE ? 0 : len;
+    }
+}
