@@ -418,3 +418,51 @@ class Solution14 {
 
     }
 }
+
+
+class Solution15 {
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> hash = new HashSet<>();
+        for(int s : nums){
+            if(hash.contains(s)){
+                return true;
+            }
+            hash.add(s);
+        }
+
+        return false;
+    }
+}
+
+class Solution16 {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Map<Integer,Integer> hash = new HashMap<>();
+        for(int i = 0; i < nums.length; i++){
+            if(hash.containsKey(nums[i])){
+                if(i - hash.get(nums[i]) <= k){
+                    return true;
+                }
+            }
+            hash.put(nums[i],i);
+        }
+        return false;
+    }
+}
+
+
+class Solution17 {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String,List<String>> hash = new HashMap<>();
+        for(String s : strs){
+            char[] tmp = s.toCharArray();
+            Arrays.sort(tmp);
+            String key = new String(tmp);
+
+            if(!hash.containsKey(key)){
+                hash.put(key,new ArrayList());
+            }
+            hash.get(key).add(s);
+        }
+        return new ArrayList(hash.values());
+    }
+}
