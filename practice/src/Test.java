@@ -659,3 +659,85 @@ class Solution26 {
         return (int)right;
     }
 }
+
+class Solution27 {
+    public int searchInsert(int[] nums, int target) {
+        int left = 0; int right = nums.length-1;
+        while(left < right){
+            int mid = left + (right-left)/2;
+            if(nums[mid] < target){
+                left = mid + 1;
+            }else{
+                right = mid;
+            }
+        }
+        if(nums[left] < target) {
+            return left+1;
+        }
+        return left;
+    }
+}
+
+class Solution28 {
+    public int peakIndexInMountainArray(int[] arr) {
+        int left = 1;
+        int right = arr.length - 2;
+        while(left < right){
+            int mid = left + (right - left+1)/2;
+            if(arr[mid] > arr[mid-1]){
+                left = mid;
+            }else{
+                right = mid-1;
+            }
+        }
+        return right;
+    }
+}
+
+class Solution29 {
+    public int findPeakElement(int[] nums) {
+        int left = 0;
+        int right = nums.length-1;
+        while(left < right){
+            int mid = left +(right - left)/2;
+            if(nums[mid] < nums[mid+1]){
+                left = mid + 1;
+            }else{
+                right = mid;
+            }
+        }
+        return left;
+    }
+}
+
+class Solution30 {
+    public int findMin(int[] nums) {
+        int left = 0;
+        int right = nums.length-1;
+        int x = nums[right];
+        while(left < right){
+            int mid = left + (right-left)/2;
+            if(nums[mid] > x){
+                left = mid + 1;
+            }else{
+                right = mid;
+            }
+        }
+        return nums[right];
+    }
+}
+class Solution31 {
+    public int takeAttendance(int[] records) {
+        int left = 0;
+        int right = records.length-1;
+        while(left < right){
+            int mid = left + (right - left)/2;
+            if(records[mid] == mid){
+                left = mid + 1;
+            }else{
+                right = mid;
+            }
+        }
+        return left == records[left] ? left+1 : left;
+    }
+}
