@@ -847,3 +847,56 @@ class Solution35 {
         return ret;
     }
 }
+
+
+class Solution36 {
+    public int subarraySum(int[] nums, int k) {
+        Map<Integer,Integer> hash = new HashMap<Integer,Integer>();
+        int sum = 0;
+        int ret = 0;
+        hash.put(0,1);
+        for(int x : nums){
+            sum += x;
+            ret += hash.getOrDefault(sum -k,0);
+            hash.put(sum,hash.getOrDefault(sum,0)+1);
+        }
+        return ret;
+    }
+}
+class Solution37 {
+    public boolean isUnique(String astr) {
+        int bitmap = 0;
+        for(int i = 0; i < astr.length(); i++){
+            int x = astr.charAt(i) - 'a';
+            if(((bitmap>>x) & 1) == 1){
+                return false;
+            }
+            bitmap = bitmap | (1<<x);
+        }
+        return true;
+    }
+}
+
+class Solution38 {
+    public int missingNumber(int[] nums) {
+        int ret = 0;
+        for(int x : nums) ret ^= x;
+
+        for(int i = 0; i <= nums.length; i++){
+            ret ^= i;
+        }
+        return ret;
+    }
+}
+
+class Solution39 {
+    public int getSum(int a, int b) {
+        while(b != 0){
+            int x = a^b;
+            int s = (a & b) << 1;
+            a = x;
+            b = s;
+        }
+        return a;
+    }
+}
